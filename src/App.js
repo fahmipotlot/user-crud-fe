@@ -1,49 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Login from './Login'
 import Register from './Register'
 import Home from './Home'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-
-            <ul>
-              <li>
-                <Link to='/'>Home</Link>
-              </li>
-              <li>
-                <Link to='/register'>Register</Link>
-              </li>
-              <li>
-                <Link to='/login'>Login</Link>
-              </li>
-            </ul>
-
-            <div>
-              <Route path='/' exact={true} component={Home}/>
-              <Route path='/register' component={Register}/>
-              <Route path='/login' component={Login}/>
-            </div>
-          </header>
-        </div>        
+      <Router>  
+        <div className="container">  
+          <nav className="navbar navbar-expand-lg navheader">  
+            <div className="collapse navbar-collapse" >  
+              <ul className="navbar-nav mr-auto">  
+                <li className="nav-item">  
+                  <Link to={'/'} className="nav-link">Home</Link>  
+                </li>  
+                <li className="nav-item">  
+                  <Link to={'/login'} className="nav-link">Login</Link>  
+                </li> 
+                <li className="nav-item">  
+                  <Link to={'/register'} className="nav-link">Register</Link>  
+                </li>  
+              </ul>  
+            </div>  
+          </nav> <br />  
+          <Switch>  
+            <Route exact path='/' component={Home} />  
+            <Route path='/login' component={Login} />  
+            <Route path='/register' component={Register} />  
+          </Switch>  
+        </div>  
       </Router>
     );
   }

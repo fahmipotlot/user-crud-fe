@@ -5,12 +5,12 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import axios from 'axios';
 
-window.token= localStorage.getItem('token');
+window.token = localStorage.getItem('token');
 
-window.axios=axios;
-axios.defaults.baseURL='http://localhost:8000/api';
-axios.defaults.headers.common['Authorization']= "Bearer "+ window.token;
-axios.defaults.headers.post['Content-Type']= 'application/json';
+window.axios = axios;
+axios.defaults.baseURL = 'http://localhost:8000/api';
+axios.defaults.headers.common['Authorization'] = "Bearer "+ window.token;
+axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
